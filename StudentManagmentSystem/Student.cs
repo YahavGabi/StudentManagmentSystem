@@ -47,10 +47,10 @@ namespace StudentManagmentSystem
         {
             this.age = age;
         }
-        private (string Name, int ID, int Age) GetStudentInfo()
-        {
-            return (studentName, studentID, age);
-        }
+         public Tuple<string , int , int > GetStudentInfo()
+         {
+              return Tuple.Create(studentName, studentID, age);
+         }
         public virtual void DisplayInformation()
         {
             Console.WriteLine($"Student Name: {studentName}, ID: {studentID}, Age: {age}");
