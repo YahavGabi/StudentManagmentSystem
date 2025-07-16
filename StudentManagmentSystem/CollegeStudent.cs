@@ -6,36 +6,54 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSystem
 {
-    class CollegeStudent : Student
+    interface IPerson
     {
-        protected string subject;
-        protected int avg;
-        public CollegeStudent(string subject, int avg, string studentName, int studentID, int age):
-            base(studentName, studentID, age)
+        void DisplayInformation();
+    }
+     class Student:IPerson
+    {
+        protected string studentName;//מאחסן את שם התלמיד
+        protected int studentID;//מאחסן את תעודת הזהות של התלמיד
+        protected int age;//מאחסן את גיל התלמיד
+
+        public Student(string studentName,int studentID,int age)// בנאי המאתחל את תכונות המחלקה
         {
-            this.subject = subject;
-            this.avg = avg;
-        }
-        public string GetSubject()
-        {
-            return this.subject;
-        }
-        public int GetAvg()
-        {
-            return this.avg;
-        }
-        public void SetSubject(string subject)
-        {
-            this.subject = subject;
-        }
-        public void SetAvg(int avg)
-        {
-            this.avg = avg;
-        }
-        public override void DisplayInformation()
-        {
-            Console.WriteLine($"College Student Name: {studentName}, ID: {studentID}, Age: {age}, Subject: {subject}, Average: {avg}");
+            this.studentName = studentName;
+            this.studentID = studentID;
+            this.age = age;
         }
         
+        public string GetStudentName()
+        {
+            return this.studentName;
+        }
+        public int GetStudentID()
+        {
+            return this.studentID;
+        }
+        public int GetAge()
+        {
+            return this.age;
+        }
+        public void SetStudentName(string studentName)
+        {
+            this.studentName = studentName;
+        }
+        public void SetStudentID(int studentID)
+        {
+            this.studentID = studentID;
+        }
+        public void SetAge(int age)
+        {
+            this.age = age;
+        }
+        public (string Name, int ID, int Age) GetStudentInfo()
+        {
+            return (studentName, studentID, age);
+        }
+        public virtual void DisplayInformation()
+        {
+            Console.WriteLine($"Student Name: {studentName}, ID: {studentID}, Age: {age}");
+        }
     }
 }
