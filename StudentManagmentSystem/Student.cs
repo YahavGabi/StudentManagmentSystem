@@ -47,7 +47,7 @@ namespace StudentManagmentSystem
         {
             this.age = age;
         }
-        public (string Name, int ID, int Age) GetStudentInfo()
+        private (string Name, int ID, int Age) GetStudentInfo()
         {
             return (studentName, studentID, age);
         }
